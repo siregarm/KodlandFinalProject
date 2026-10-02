@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  >
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Diary Perubahan Iklim</title>
+</head>
+<body>
+  <header class="header">
+    <img src="../static/img/new_logo.png" alt="logo" width="50" height="50">
+    <ul class="main-list">
+        <li class="list__item">
+          <div class="image__button">
+            <img src="https://static.vecteezy.com/system/resources/previews/046/010/545/non_2x/user-icon-simple-design-free-vector.jpg" alt="login" width="50" height="50">
+            <a href="/" class="image__button__click">...</a>
+          </div>
+        </li>
+    </ul>
+  </header>
+  <main>
+    {% block content %}
+    <h1 class="main__title">Catatan Kegiatan 📝</h1>
+    <h2><i>Mulailah menulis jejak hijau anda! Langkah kecil setiap hari memberi dampak besar.</i></h2>
+    <br>
+    <ul class="cards-list">
+      {% for el in cards%}
+      <li class="card">
+        <a class="card__link" href="/card/{{el.id}}">
+          <img class="card__img" src="https://cdn-icons-png.flaticon.com/512/2421/2421430.png" width="250" height="250" alt="post_icon">
+          <div class="card__text">
+            <h2 class="card__title">{{el.title}}</h2>
+            <p class="card__subtitle">{{el.subtitle}}</p>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+      <li class="card card--creat">
+          <a class="creat__link" href="{{url_for('create')}}"></a>
+      </li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <h1 class="main__title">Fitur Lainnya ✨</h1>
+    <br>
+    <div class="button__container">
+      <a class="main__link" href="/info">Baca informasi perubahan iklim! 📰🗞️</a>
+    </div>
+    <br>
+    <br>
+    {% endblock %}
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
